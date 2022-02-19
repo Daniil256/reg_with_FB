@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Магазин велосипедов</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_title">
+                <strong class="logo">
+                    <a href="index.html"> GET.BIKE </a>
+                </strong>
+                <h2>Магазин велосипедов и аксессуаров к ним</h2>
+            </div>
+        </header>
+        <div class="content">
+            <div class="navigation">
+                <ul class="header_links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li class="active"><a href="#">Регистрация</a></li>
+                </ul>
+            </div>
+            <div class="main">
+                <form class="contacts" action="#">
+                    <input type="text" name="name" placeholder="Ваше имя" class="input text" />
+                    <input type="email" name="email" placeholder="Ваш email" class="input email" />
+                    <input type="password" name="password" placeholder="Пароль" class="input pass" />
+                    <input type="password" name="confirm_pass" placeholder="Повторите пароль"
+                        class="input confirm_pass" />
+                    <label class="btn reg"><button type="#" hidden></button>Зарегистрироваться</label>
+                    <label class="btn log"><button type="#" hidden></button>Войти</label>
+                    <label class="btn logout"><button hidden></button>Выйти</label>
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button>
+                    <div class="msg"></div>
+                </form>
+                <!-- Load the JS SDK asynchronously -->
+            </div>
+            <div class="related__links">Related links</div>
+        </div>
+        <footer class="footer">
+            <p>
+                &copy; GET.BIKE, <time>2021</time> Интернет магазин велосипедов ИНН
+                61655757535858 ОГРНИП 3180004940-69390 Заказы отправляются из г.
+                Самара
+            </p>
+        </footer>
+    </div>
+</body>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script src="js/script.js"></script>
+
+</html>

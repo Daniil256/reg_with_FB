@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facebook Login JavaScript Example</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded"
+        data-auto-logout-link="false" data-use-continue-as="false"
+        style="margin: 10px auto; max-width: 250px; display: block;"></div>
+    <script>
+        let person = {
+            name: "",
+            email: ""
+        };
+        let users = [];
+
+        function login() {
+            FB.login(function (response) {
+                if (response.status == "connected") {
+                    person.userID = response.authResponse.userID;
+                    person.accessToken = response.authResponse.accessToken;
+
+
+                    FB.api('/me?fields=id,name,email', function (userData) {
+                        person.name = userData.name;
+                        person.email = userData.email;
+
+                        let forHi = "welcome" + person.name;
+                        sessionStorage.setItem('sessionForHi', JSON.stringify(forHi));
+
+                        document.getElementById('forHi').innerHTML = '';
+                        document.getElementById('forHi').innerHTHL = forHi;
+
+                        users = JSON.parse(localStorage.getTtem('localUser')) || [];
+
+                        users.push(person);
+                        localstorage.setItem("localUser", JSON.stringify(users));
+                    });
+                }
+            }, { scope: 'public profile, email' });
+        };
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: "1032700894249608",
+                autoLogappEvents: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+</html>
